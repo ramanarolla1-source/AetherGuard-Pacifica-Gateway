@@ -1,22 +1,24 @@
-AetherGuard for Pacifica 🛡️
-Sovereign, Intent-Based Security for Perpetual Trading
-🌐 Overview
-AetherGuard is a hardened execution gateway built for the Pacifica Hackathon. It introduces a Biometric "Proof of Intent" protocol to the Perpetual trading loop. By moving authorization from vulnerable "Hot API Keys" to hardware-anchored Secure Enclaves, AetherGuard ensures that a compromised trading bot cannot drain a user's collateral.
+# AetherGuard for Pacifica 🛡️
+### **Sovereign, Intent-Based Security for Perpetual Trading**
 
-🚀 The Problem: The "API Key" Vulnerability
-In the high-stakes world of 50x leverage on Pacifica, security is binary. Current automation relies on session-based API tokens stored in memory. A single malware infection or session hijack leads to catastrophic liquidation.
+[![Stack: Rust](https://img.shields.io/badge/Stack-Rust-orange.svg)](https://www.rust-lang.org/)
+[![Infrastructure: Alpine Linux](https://img.shields.io/badge/Infra-Alpine_Linux-blue.svg)](https://alpinelinux.org/)
 
-🛡️ The Solution: Proof of Intent
-AetherGuard acts as a Hardened Buffer between the Trading Bot and the Pacifica SDK. Every high-value transaction (Opening a position, Adjusting Margin, or Withdrawing Collateral) must pass a Hardware Handshake.
+## 🌐 Overview
+**AetherGuard** is a hardened execution gateway built for the **Pacifica Hackathon**. It introduces a **Biometric "Proof of Intent"** protocol to the Perpetual trading loop. By moving authorization from vulnerable "Hot API Keys" to hardware-anchored Secure Enclaves, AetherGuard ensures that a compromised trading bot cannot drain a user's collateral.
 
-Key Technical Features:
-Rust-Hardened Runtime: All trading logic is executed within a memory-safe Rust environment on a minimalist Alpine Linux footprint.
+## 🚀 The Problem: The "API Key" Vulnerability
+In the high-stakes world of **50x leverage on Pacifica**, security is binary. Current automation relies on session-based API tokens stored in memory. A single malware infection or session hijack leads to catastrophic liquidation.
 
-Biometric Authorization: Integrates Passkey-native signatures to verify physical presence before a trade is broadcast to the Pacifica protocol.
+## 🛡️ The Solution: Proof of Intent
+AetherGuard acts as a **Hardened Buffer** between the Trading Bot and the Pacifica SDK. Every high-value transaction (Opening a position, Adjusting Margin, or Withdrawing Collateral) must pass a Hardware Handshake.
 
-Policy-as-Code: Define "Sovereign Guardrails" (e.g., “No leverage > 10x without secondary biometric check”).
+### Key Technical Features:
+* **Rust-Hardened Runtime:** All trading logic is executed within a memory-safe Rust environment on a minimalist Alpine Linux footprint.
+* **Biometric Authorization:** Integrates Passkey-native signatures to verify physical presence before a trade is broadcast to the Pacifica protocol.
+* **Policy-as-Code:** Define "Sovereign Guardrails" (e.g., “No leverage > 10x without secondary biometric check”).
+
 ## 🏗️ Architecture
-
 ```mermaid
 graph TD
     A[Trading Bot / Agent] -->|Trade Request| B{AetherGuard Gateway}
