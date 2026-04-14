@@ -29,7 +29,6 @@ graph TD
     
     style B fill:#f96,stroke:#333,stroke-width:2px
     style D fill:#bbf,stroke:#333,stroke-width:2px
-
 📂 Repository Structure
 /hardened-runtime: Core Rust implementation of the security buffer.
 
