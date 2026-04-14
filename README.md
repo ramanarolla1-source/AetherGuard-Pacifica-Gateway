@@ -16,18 +16,29 @@ AetherGuard acts as a **Hardened Buffer** between the Trading Bot and the Pacifi
 ### Key Technical Features:
 * **Rust-Hardened Runtime:** All trading logic is executed within a memory-safe Rust environment on a minimalist Alpine Linux footprint.
 * **Biometric Authorization:** Integrates Passkey-native signatures to verify physical presence before a trade is broadcast to the Pacifica protocol.
-* **Policy-as-Code:** Define "Sovereign Guardrails" (e.g., “No leverage > 10x without secondary biometric check”).## 🏗️ Architecture
+* **Policy-as-Code:** Define "Sovereign Guardrails" (e.g., “No leverage > 10x without secondary biometric check”)
+  🏗️ Architecture (Sovereign Flow)
 
-```mermaid
-graph TD
-    A[Trading Bot / Agent] -->|Trade Request| B{AetherGuard Gateway}
-    B -->|Check Policy| C[Sovereign Guardrails]
-    C -->|Trigger| D[Biometric Handshake]
-    D -->|Signed Intent| E[Pacifica SDK]
-    E -->|Finality| F[Pacifica Perps Engine]
-    
-    style B fill:#f96,stroke:#333,stroke-width:2px
-    style D fill:#bbf,stroke:#333,stroke-width:2px
+    [ TRADING BOT / AGENT ]
+               |
+               | (1) Trade Request
+               v
+    +----------------------------------+
+    |      AETHERGUARD GATEWAY         |
+    |    (Rust / Alpine Hardened)      |
+    +----------------------------------+
+               |
+               | (2) Policy Check & Biometric Handshake
+               v
+    +----------------------------------+
+    |   HARDWARE "PROOF OF INTENT"     |
+    |    (Passkey / Secure Enclave)    |
+    +----------------------------------+
+               |
+               | (3) Validated Intent Signature
+               v
+    [ PACIFICA PERPETUALS ENGINE ]
+
 
 📂 Repository Structure
 /hardened-runtime: Core Rust implementation of the security buffer.
