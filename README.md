@@ -15,8 +15,8 @@ Rust-Hardened Runtime: All trading logic is executed within a memory-safe Rust e
 Biometric Authorization: Integrates Passkey-native signatures to verify physical presence before a trade is broadcast to the Pacifica protocol.
 
 Policy-as-Code: Define "Sovereign Guardrails" (e.g., “No leverage > 10x without secondary biometric check”).
-
-🏗️ Architecture
+## 🏗️ Architecture
+```mermaid
 graph TD
     A[Trading Bot / Agent] -->|Trade Request| B{AetherGuard Gateway}
     B -->|Check Policy| C[Sovereign Guardrails]
@@ -26,7 +26,7 @@ graph TD
     
     style B fill:#f96,stroke:#333,stroke-width:2px
     style D fill:#bbf,stroke:#333,stroke-width:2px
-    📂 Repository Structure
+📂 Repository Structure
 /hardened-runtime: Core Rust implementation of the security buffer.
 
 /agents: Python-based trading agent logic.
